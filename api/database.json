@@ -72,20 +72,16 @@
   ],
   "orders": [
     {
-      "id": 0,
-      "metalId": 0,
-      "sizeId": 0,
-      "styleId": 0,
-      "orderTime": "",
-      "price": 0
+      "id": 1,
+      "metalId": 1,
+      "sizeId": 3,
+      "styleId": 1
     },
     {
-      "id": 0,
-      "metalId": 0,
-      "sizeId": 0,
-      "styleId": 0,
-      "orderTime": "",
-      "price": 0
+      "id": 2,
+      "metalId": 5,
+      "sizeId": 1,
+      "styleId": 1
     }
   ]
 }

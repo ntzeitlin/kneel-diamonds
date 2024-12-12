@@ -1,5 +1,6 @@
 import { MetalOptions } from './MetalOptions.js'
 import { orderButton } from './OrderButton.js'
+import { Orders } from './Orders.js'
 import { SizeOptions } from './SizeOptions.js'
 import { StyleOptions } from './StyleOptions.js'
 
@@ -7,6 +8,8 @@ const render = async () => {
     const metalOptionsHTML = await MetalOptions()
     const sizeOptionsHTML = await SizeOptions()
     const styleOptionsHTML = await StyleOptions()
+    const orderButtonHTML = orderButton()
+    const ordersHTML = await Orders()
 
     const composedHTML = `
         <h1>Kneel Diamonds</h1>
@@ -29,16 +32,21 @@ const render = async () => {
         </article>
 
         <article class="order">
-            ${orderButton()}
+            ${orderButtonHTML}
         </article>
 
         <article class="customOrders">
             <h2>Custom Jewelry Orders</h2>
-
+            ${ordersHTML}
         </article>
     `
 
     container.innerHTML = composedHTML
 }
+
+document.addEventListener("newOrderPlaced", event => {
+    console.log("State of data has changed. Regenerating HTML...")
+    render()
+})
 
 render()
