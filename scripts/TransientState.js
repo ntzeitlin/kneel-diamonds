@@ -32,3 +32,21 @@ export const setPrice = (totalPrice) => {
 
 
 // Function to convert transient state into permanent state
+
+export const placeOrder = async () => {
+    /*
+        Add the required keys to the object below that are
+        needed for a POST operation.
+    */
+    const postOptions = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body: JSON.stringify(transientState)
+    }
+
+    // Send the transient state to your API
+    const response = await fetch("http://localhost:8088/orders", postOptions)
+
+}

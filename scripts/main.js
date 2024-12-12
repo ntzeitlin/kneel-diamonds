@@ -1,4 +1,5 @@
 import { MetalOptions } from './MetalOptions.js'
+import { orderButton } from './OrderButton.js'
 import { SizeOptions } from './SizeOptions.js'
 import { StyleOptions } from './StyleOptions.js'
 
@@ -28,7 +29,7 @@ const render = async () => {
         </article>
 
         <article class="order">
-
+            ${orderButton()}
         </article>
 
         <article class="customOrders">
