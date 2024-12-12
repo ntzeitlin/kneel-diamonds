@@ -1,9 +1,10 @@
 // handle click event and submit transient state
 
-import { placeOrder } from "./TransientState.js"
+import { placeOrder, setOrderTime } from "./TransientState.js"
 
 const handleButtonClick = (clickEvent) => {
     if (clickEvent.target.id === "orderbutton") {
+        setOrderTime(Date.now())
         placeOrder()
     }
 }

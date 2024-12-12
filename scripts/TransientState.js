@@ -4,6 +4,7 @@ const transientState = {
     "metalId": 0,
     "sizeId": 0,
     "styleId": 0,
+    "orderTime": 0
 }
 
 // Set up Setter Functions
@@ -19,14 +20,12 @@ export const setStyle = (chosenStyle) => {
     transientState.styleId = chosenStyle
     console.log(transientState)
 }
-// export const setOrderTime = (ordertime) => {
-//     transientState.orderTime = ordertime
-//     console.log(transientState)
-// }
-// export const setPrice = (totalPrice) => {
-//     transientState.price = totalPrice
-//     console.log(transientState)
-// }
+
+export const setOrderTime = (ordertime) => {
+    transientState.orderTime = ordertime
+    console.log(transientState)
+}
+
 
 
 // Function to convert transient state into permanent state
