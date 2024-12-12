@@ -23,9 +23,13 @@ export const StyleOptions = async () => {
     //     </div>`
     // }
 
-    const stylesStringArray = styleOptions.map(styleOption => `<div>
-        <input type="radio" name="styleoption" value="${styleOption.id}" /> ${styleOption.style}
-        </div>`)
+    const stylesStringArray = styleOptions.map((styleOption) => {
+        if (styleOption.id !== "0") {
+            return `<div>
+                <input type="radio" name="styleoption" value="${styleOption.id}" /> ${styleOption.style}
+                </div>`
+        }
+    })
 
     styleOptionHTML += stylesStringArray.join("")
 

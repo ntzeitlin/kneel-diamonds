@@ -22,9 +22,13 @@ export const MetalOptions = async () => {
     // }
 
     // Using .map()
-    const metalStringArray = metals.map(metal => `<div>
-        <input type='radio' name='metaloption' value='${metal.id}' /> ${metal.metal} 
-        </div>` )
+    const metalStringArray = metals.map((metal) => {
+        if (metal.id !== "0") {
+            return `<div>
+            <input type='radio' name='metaloption' value='${metal.id}' /> ${metal.metal} 
+            </div>`
+        }
+    })
 
     metalOptionHTML += metalStringArray.join("")
 

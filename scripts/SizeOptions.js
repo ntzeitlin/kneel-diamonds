@@ -22,9 +22,13 @@ export const SizeOptions = async () => {
     // </div>`
     // }
 
-    const sizeStringArray = sizeOptions.map(sizeOption => `<div>
-        <input type="radio" name="sizeoption" value="${sizeOption.id}" /> ${sizeOption.carets}
-        </div>` )
+    const sizeStringArray = sizeOptions.map((sizeOption) => {
+        if (sizeOption.id !== "0") {
+            return `<div>
+            <input type="radio" name="sizeoption" value="${sizeOption.id}" /> ${sizeOption.carets}
+            </div>`
+        }
+    })
 
     sizeOptionHTML += sizeStringArray.join("")
 
