@@ -7,35 +7,47 @@
 //     "orderTime": 0
 // }
 
-const transientState = new Map()
+export const transientState = new Map()
 
 const resetTransientState = () => {
     transientState.set("id", 0)
     transientState.set("metalId", 0)
     transientState.set("sizeId", 0)
     transientState.set("styleId", 0)
+    transientState.set("shapetypeId", 1)
     transientState.set("orderTime", 0)
 }
 
 resetTransientState()
+const customEvent = new CustomEvent("regenHTML")
 
 // Set up Setter Functions
 export const setMetalType = (chosenMetal) => {
     transientState.set("metalId", chosenMetal)
-    console.log(transientState)
+    document.dispatchEvent(customEvent)
+
 }
 export const setSize = (chosenSize) => {
     transientState.set("sizeId", chosenSize)
-    console.log(transientState)
+    document.dispatchEvent(customEvent)
+
 }
 export const setStyle = (chosenStyle) => {
     transientState.set("styleId", chosenStyle)
-    console.log(transientState)
+    document.dispatchEvent(customEvent)
+
 }
 
 export const setOrderTime = (ordertime) => {
     transientState.set("orderTime", ordertime)
-    console.log(transientState)
+    document.dispatchEvent(customEvent)
+
+}
+
+export const setShapeType = (chosenType) => {
+    transientState.set("shapetypeId", chosenType)
+    document.dispatchEvent(customEvent)
+
 }
 
 
@@ -58,7 +70,6 @@ export const placeOrder = async () => {
     // Send the transient state to your API
     const response = await fetch("http://localhost:8088/orders", postOptions)
     resetTransientState()
-    const customEvent = new CustomEvent("newOrderPlaced")
     document.dispatchEvent(customEvent)
 
 }

@@ -82,5 +82,22 @@
       "price": 1241
     }
   ],
+  "shapetypes": [
+    {
+      "id": "1",
+      "type": "Ring",
+      "multiple": 1
+    },
+    {
+      "id": "2",
+      "type": "Earring",
+      "multiple": 2
+    },
+    {
+      "id": "3",
+      "type": "Necklace",
+      "multiple": 3
+    }
+  ],
   "orders": []
 }

@@ -2,7 +2,7 @@
 
 // Event Handler
 
-import { setStyle } from "./TransientState.js"
+import { setStyle, transientState } from "./TransientState.js"
 
 const handleStyleChoice = (event) => {
     if (event.target.name === "styleoption") {
@@ -25,6 +25,12 @@ export const StyleOptions = async () => {
 
     const stylesStringArray = styleOptions.map((styleOption) => {
         if (styleOption.id !== "0") {
+            let currentTransientStateStyle = transientState.get("styleId")
+            if (currentTransientStateStyle === parseInt(styleOption.id)) {
+                return `<div>
+                <input type="radio" name="styleoption" value="${styleOption.id}" checked /> ${styleOption.style}
+                </div>`
+            }
             return `<div>
                 <input type="radio" name="styleoption" value="${styleOption.id}" /> ${styleOption.style}
                 </div>`

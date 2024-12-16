@@ -1,4 +1,4 @@
-import { setMetalType } from "./TransientState.js"
+import { setMetalType, transientState } from "./TransientState.js"
 
 // event handler function
 const handleMetalChoice = (event) => {
@@ -24,6 +24,12 @@ export const MetalOptions = async () => {
     // Using .map()
     const metalStringArray = metals.map((metal) => {
         if (metal.id !== "0") {
+            let currentTransientStateMetal = transientState.get("metalId")
+            if (currentTransientStateMetal === parseInt(metal.id)) {
+                return `<div>
+                <input type='radio' name='metaloption' value='${metal.id}' checked /> ${metal.metal} 
+                </div>`
+            }
             return `<div>
             <input type='radio' name='metaloption' value='${metal.id}' /> ${metal.metal} 
             </div>`
